@@ -380,7 +380,8 @@ namespace MalbersAnimations.HAP
 
         public virtual void MountAnimal()
         {
-            if (!CanMount) return;
+            if (!CanMount) 
+                return;
 
             Debbuging("Mount Animal", "cyan");
 

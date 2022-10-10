@@ -464,9 +464,21 @@ MonoBehaviour:
     UseConstant: 1
     ConstantValue: {fileID: 0}
     Variable: {fileID: 0}
+  UseChild:
+    UseConstant: 1
+    ConstantValue: 
+    Variable: {fileID: 0}
   HideOffScreen: {fileID: 0}
   ResetOnDisable: 0
   HideOnNull: 0
+  Offset:
+    UseConstant: 1
+    ConstantValue: {x: 0, y: 0, z: 0}
+    Variable: {fileID: 0}
+  Scale:
+    UseConstant: 1
+    ConstantValue: {x: 1, y: 1, z: 1}
+    Variable: {fileID: 0}
 --- !u!1 &1156288420855200
 GameObject:
   m_ObjectHideFlags: 0
@@ -753,9 +765,21 @@ MonoBehaviour:
     UseConstant: 1
     ConstantValue: {fileID: 0}
     Variable: {fileID: 0}
+  UseChild:
+    UseConstant: 1
+    ConstantValue: 
+    Variable: {fileID: 0}
   HideOffScreen: {fileID: 0}
   ResetOnDisable: 0
   HideOnNull: 0
+  Offset:
+    UseConstant: 1
+    ConstantValue: {x: 0, y: 0, z: 0}
+    Variable: {fileID: 0}
+  Scale:
+    UseConstant: 1
+    ConstantValue: {x: 1, y: 1, z: 1}
+    Variable: {fileID: 0}
 --- !u!114 &114076628387115450
 MonoBehaviour:
   m_ObjectHideFlags: 0

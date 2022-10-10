@@ -55,6 +55,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -79,6 +80,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1383049325580060
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,9 +217,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5db483093dc6384a8e91aac44f175ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debug: 0
   automatic: 1
-  HeadOnly: 0
-  HeadName: Head
+  DisableAfterUsed: 0
+  BoneOnly: 0
+  Angle: 360
+  Weight: 1
+  DoubleSide: 0
+  Flip: 0
+  BoneName: Head
   zoneType: 2
   stateAction: 0
   stanceAction: 0
@@ -240,11 +248,14 @@ MonoBehaviour:
     UseConstant: 1
     ConstantValue: 0
     Variable: {fileID: 0}
+  ZoneID: 0
+  m_abilityStatus: 0
+  AbilityTime: 3
   Force:
     UseConstant: 1
     ConstantValue: 10
     Variable: {fileID: 0}
-  EnterDrag:
+  EnterAceleration:
     UseConstant: 1
     ConstantValue: 2
     Variable: {fileID: 0}
@@ -252,11 +263,19 @@ MonoBehaviour:
     UseConstant: 1
     ConstantValue: 4
     Variable: {fileID: 0}
-  Bounce:
+  LimitForce:
     UseConstant: 1
     ConstantValue: 8
     Variable: {fileID: 0}
-  ActionDelay: 0
+  ForceGrounded:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  ForceAirControl:
+    UseConstant: 1
+    ConstantValue: 1
+    Variable: {fileID: 0}
+  JustExitAnimal: {fileID: 0}
   ModeFloat: 0
   RemoveAnimalOnActive: 0
   OnEnter:
@@ -268,8 +287,11 @@ MonoBehaviour:
   OnZoneActivation:
     m_PersistentCalls:
       m_Calls: []
-  EditorShowEvents: 0
-  ShowStatModifiers: 0
+  OnZoneFailed:
+    m_PersistentCalls:
+      m_Calls: []
+  ZoneCollider: {fileID: 65461740496044076}
+  Editor_Tabs1: 0
 --- !u!1 &1762367727614750
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,6 +352,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
