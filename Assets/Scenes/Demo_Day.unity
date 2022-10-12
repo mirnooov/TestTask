@@ -6506,6 +6506,14 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114866700021556508, guid: 4bae05e6915edae478c69b2a8a372913, type: 3}
+      propertyPath: m_XAxis.m_MaxSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114866700021556508, guid: 4bae05e6915edae478c69b2a8a372913, type: 3}
+      propertyPath: m_YAxis.m_MaxSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114866700021556508, guid: 4bae05e6915edae478c69b2a8a372913, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
       value: 1.7771261
       objectReference: {fileID: 0}
@@ -8794,7 +8802,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 100000
+  m_Intensity: 5818.545
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -8835,7 +8843,7 @@ Light:
   m_RenderingLayerMask: 1
   m_Lightmapping: 4
   m_LightShadowCasterMode: 2
-  m_AreaSize: {x: 1, y: 1}
+  m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 1
@@ -8878,7 +8886,7 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
-  m_Intensity: 100000
+  m_Intensity: 5818.545
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -10947,15 +10955,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e83dc933223ced4bae2a21491a64a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dialogsPhrases:
-  - Author: Main
-    Phrases: Hello
-  - Author: Girl
-    Phrases: Hello
-  - Author: Main
-    Phrases: How i you?
-  _cameraForDialog: {fileID: 0}
+  _dialogsPhrasesForStart: []
+  _dialogsPhrasesForFinal: []
   _dialogDisplayer: {fileID: 0}
+  _cannotInteractiveEvent: {fileID: 0}
 --- !u!4 &818703781
 Transform:
   m_ObjectHideFlags: 0
@@ -12069,6 +12072,14 @@ PrefabInstance:
     - target: {fileID: 1277815242415383482, guid: c038ec12f4ad8e645b3066233ffaf1c7, type: 3}
       propertyPath: m_Lens.GateFit
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1277815242415383482, guid: c038ec12f4ad8e645b3066233ffaf1c7, type: 3}
+      propertyPath: m_XAxis.m_MaxSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1277815242415383482, guid: c038ec12f4ad8e645b3066233ffaf1c7, type: 3}
+      propertyPath: m_YAxis.m_MaxSpeed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c038ec12f4ad8e645b3066233ffaf1c7, type: 3}
@@ -19376,6 +19387,14 @@ PrefabInstance:
       propertyPath: m_Lens.GateFit
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114251809253154792, guid: faf5084f31a871b4d83b8cb2f139302c, type: 3}
+      propertyPath: m_XAxis.m_MaxSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114251809253154792, guid: faf5084f31a871b4d83b8cb2f139302c, type: 3}
+      propertyPath: m_YAxis.m_MaxSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114281403021483178, guid: faf5084f31a871b4d83b8cb2f139302c, type: 3}
       propertyPath: m_Lens.GateFit
       value: 2
@@ -22035,6 +22054,14 @@ PrefabInstance:
     - target: {fileID: 4821134240930484, guid: 4d47ce2792cce664781eb41fc44fb8c6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114586034640514324, guid: 4d47ce2792cce664781eb41fc44fb8c6, type: 3}
+      propertyPath: m_XAxis.m_MaxSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114586034640514324, guid: 4d47ce2792cce664781eb41fc44fb8c6, type: 3}
+      propertyPath: m_YAxis.m_MaxSpeed
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 211427032449271110, guid: 4d47ce2792cce664781eb41fc44fb8c6, type: 3}
       propertyPath: m_FollowOffset.y
@@ -26620,6 +26647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 
+  _sadAnimation: {fileID: 0}
 --- !u!4 &1915470270
 Transform:
   m_ObjectHideFlags: 0
@@ -26983,6 +27011,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2807e99cdf0828a44b94e53a28307c83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _authorText: {fileID: 0}
+  _phraseText: {fileID: 0}
 --- !u!4 &1932979898
 Transform:
   m_ObjectHideFlags: 0
