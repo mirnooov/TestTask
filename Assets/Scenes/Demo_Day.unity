@@ -41853,6 +41853,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 409934751589816540, guid: c27d084f487ec2e4fa268cfcdef9e24a, type: 3}
+      propertyPath: internalComponents.Array.data[5].active
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1324922063239881838, guid: c27d084f487ec2e4fa268cfcdef9e24a, type: 3}
       propertyPath: inputs.Array.size
       value: 23
