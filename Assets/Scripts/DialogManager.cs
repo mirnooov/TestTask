@@ -29,7 +29,7 @@ public class DialogManager : MonoBehaviour
     public void StartDialog(bool isFinal = false)
     {
         _dialogStarted = true;
-        _currentDialogsPhrases = isFinal ? _dialogsPhrasesForFinal : _dialogsPhrasesForStart;
+        _currentDialogsPhrases = _dialogsPhrasesForStart;
         
         _dialogDisplayer.UpdatePhrases(_currentDialogsPhrases[0].Author, _currentDialogsPhrases[0].Phrases);
     }
