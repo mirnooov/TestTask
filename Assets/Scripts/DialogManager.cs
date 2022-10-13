@@ -6,7 +6,6 @@ using UnityEngine;
 public class DialogManager : MonoBehaviour
 {
     [SerializeField] private List<DialogPhrase> _dialogsPhrasesForStart;
-    [SerializeField] private List<DialogPhrase> _dialogsPhrasesForFinal;
     [SerializeField] private DialogDisplayer _dialogDisplayer;
     [SerializeField] private MEvent _cannotInteractiveEvent;
     
@@ -20,11 +19,11 @@ public class DialogManager : MonoBehaviour
             EndPhrases();
     }
 
-    public void StartDialog(bool isFinal = false)
+    public void StartDialog(List<DialogPhrase> dialogsPhrases, params PersonInDialog[] personInDialogs)
     {
         _dialogStarted = true;
         _currentDialogsPhrases = _dialogsPhrasesForStart;
-        
+        InitPerson(personInDialogs);
         _dialogDisplayer.UpdatePhrases(_currentDialogsPhrases[0].Author, _currentDialogsPhrases[0].Phrases);
     }
 
@@ -32,7 +31,7 @@ public class DialogManager : MonoBehaviour
     {
         foreach (var person in personInDialogs)
         {
-            _peopleInDialog.AddPerson(person);
+            _peopleInDialog.AddPerson(person.ID, person);
         }
     }
     private void EndPhrases()
@@ -44,7 +43,7 @@ public class DialogManager : MonoBehaviour
         else
             _dialogDisplayer.UpdatePhrases(_currentDialogsPhrases[0].Author, _currentDialogsPhrases[0].Phrases);
         
-        //_peopleInDialog.SwitchPerson(_currentDialogsPhrases[0].Author, _currentDialogsPhrases[0].Mood);
+        _peopleInDialog.SwitchPerson(_currentDialogsPhrases[0].Author, _currentDialogsPhrases[0].Mood);
     }
     private void EndDialog()
     {
