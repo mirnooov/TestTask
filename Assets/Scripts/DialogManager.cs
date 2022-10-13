@@ -13,13 +13,7 @@ public class DialogManager : MonoBehaviour
     private List<DialogPhrase> _currentDialogsPhrases;
     private PeopleInDialog _peopleInDialog;
     private bool _dialogStarted = false;
-    
-    public Action<string> DialogEndedEvent;
 
-    private void OnEnable()
-    {
-        InitPerson();
-    }
     private void Update()
     {
         if(Input.GetKeyUp(KeyCode.Space) && _dialogStarted)
@@ -34,7 +28,7 @@ public class DialogManager : MonoBehaviour
         _dialogDisplayer.UpdatePhrases(_currentDialogsPhrases[0].Author, _currentDialogsPhrases[0].Phrases);
     }
 
-    private void InitPerson(params PersonInDialog[] personInDialogs)
+    public void InitPerson(params PersonInDialog[] personInDialogs)
     {
         foreach (var person in personInDialogs)
         {
@@ -57,7 +51,6 @@ public class DialogManager : MonoBehaviour
         _dialogStarted = false;
         _dialogDisplayer.Reset();
         _cannotInteractiveEvent.Invoke();
-        DialogEndedEvent?.Invoke("KillWolf");
     }
 }
 

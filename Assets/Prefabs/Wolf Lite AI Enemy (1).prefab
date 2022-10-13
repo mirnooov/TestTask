@@ -85,7 +85,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7403204806355872018, guid: d520239042c144f438232f9375004dc2, type: 3}
       propertyPath: stats.Array.data[0].value.ConstantValue
-      value: 50
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7403204806355872018, guid: d520239042c144f438232f9375004dc2, type: 3}
       propertyPath: stats.Array.data[1].value.ConstantValue
@@ -520,6 +520,18 @@ CapsuleCollider:
   m_Height: 1.3823515
   m_Direction: 1
   m_Center: {x: 0, y: 0.8930362, z: 0.44160318}
+--- !u!114 &-5207486275757116623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6596845516663733635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9bc0404484c1ef42b4b5b2168075d8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2139868446
 MonoBehaviour:
   m_ObjectHideFlags: 0
