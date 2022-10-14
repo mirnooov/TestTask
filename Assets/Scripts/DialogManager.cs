@@ -13,6 +13,7 @@ public class DialogManager : MonoBehaviour
     private bool _dialogStarted = false;
 
     private Action _dialogEnded;
+    
     private void Update()
     {
         if(Input.GetKeyUp(KeyCode.Space) && _dialogStarted)
@@ -25,10 +26,14 @@ public class DialogManager : MonoBehaviour
         _currentDialogsPhrases = followTaskArgument.Dialog;
         InitPerson(followTaskArgument.Target);
         _dialogEnded = followTaskArgument.Done;
+        _dialogStarted = true;
     }
     public void StartDialog()
     {
-        _dialogStarted = true;
+        if (_dialogStarted == false)
+        {
+            return;
+        }
         _peopleInDialog.SwitchPerson(_currentDialogsPhrases[0].Author, _currentDialogsPhrases[0].Mood);
         _dialogDisplayer.UpdatePhrases(_currentDialogsPhrases[0].Author, _currentDialogsPhrases[0].Phrases);
     }
@@ -46,7 +51,10 @@ public class DialogManager : MonoBehaviour
         _currentDialogsPhrases.RemoveAt(0);
 
         if (_currentDialogsPhrases.Count <= 0)
+        {
             EndDialog();
+            return;
+        }
         else
             _dialogDisplayer.UpdatePhrases(_currentDialogsPhrases[0].Author, _currentDialogsPhrases[0].Phrases);
         
@@ -66,5 +74,12 @@ public class DialogPhrase
 {
     public string Author;
     public string Phrases;
-    public string Mood;
+    public Mood Mood;
+}
+
+public enum Mood
+{
+    Sad,
+    Happy,
+    Win
 }

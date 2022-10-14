@@ -28,7 +28,6 @@ public class Quest : MonoBehaviour
         _tasks[0].StartTask();
         _questDisplayer.Init(_tasks[0].Name, _tasks[0].Description, _tasks[0].Icon);
     }
-
     public void OnCompleteTask()
     {
         _tasks.RemoveAt(0);
@@ -39,11 +38,8 @@ public class Quest : MonoBehaviour
         }
         StartTask();
     }
-
     private void OnCompleteQuest()
     {
-        
+        Debug.Log("Quest completed. What about test task?");
     }
-    
-    
 }
