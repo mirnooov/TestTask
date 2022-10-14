@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class DialogManager : MonoBehaviour
 {
-    [SerializeField] private List<DialogPhrase> _dialogsPhrasesForStart;
     [SerializeField] private DialogDisplayer _dialogDisplayer;
     [SerializeField] private MEvent _cannotInteractiveEvent;
     
@@ -13,22 +12,30 @@ public class DialogManager : MonoBehaviour
     private PeopleInDialog _peopleInDialog;
     private bool _dialogStarted = false;
 
+    private Action _dialogEnded;
     private void Update()
     {
         if(Input.GetKeyUp(KeyCode.Space) && _dialogStarted)
             EndPhrases();
     }
 
-    public void StartDialog(List<DialogPhrase> dialogsPhrases, params PersonInDialog[] personInDialogs)
+    public void Init(ITaskArgument taskArgument)
+    {
+        var followTaskArgument = taskArgument as FollowTaskArgument;
+        _currentDialogsPhrases = followTaskArgument.Dialog;
+        InitPerson(followTaskArgument.Target);
+        _dialogEnded = followTaskArgument.Done;
+    }
+    public void StartDialog()
     {
         _dialogStarted = true;
-        _currentDialogsPhrases = _dialogsPhrasesForStart;
-        InitPerson(personInDialogs);
+        _peopleInDialog.SwitchPerson(_currentDialogsPhrases[0].Author, _currentDialogsPhrases[0].Mood);
         _dialogDisplayer.UpdatePhrases(_currentDialogsPhrases[0].Author, _currentDialogsPhrases[0].Phrases);
     }
 
-    public void InitPerson(params PersonInDialog[] personInDialogs)
+    private void InitPerson(params DialogTarget[] personInDialogs)
     {
+        _peopleInDialog = new PeopleInDialog();
         foreach (var person in personInDialogs)
         {
             _peopleInDialog.AddPerson(person.ID, person);
@@ -50,6 +57,7 @@ public class DialogManager : MonoBehaviour
         _dialogStarted = false;
         _dialogDisplayer.Reset();
         _cannotInteractiveEvent.Invoke();
+        _dialogEnded?.Invoke();
     }
 }
 

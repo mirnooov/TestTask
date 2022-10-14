@@ -3,12 +3,13 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 { 
-    public void StartSpawnKillTarget(ITaskTarget killTarget, int amount, Action kill) 
+    public void StartSpawnKillTarget(ITaskArgument taskArgument)
     {
-      for (int i = 0; i < amount; i++)
+        var killTaskArgument = taskArgument as KillTaskArgument;
+      for (int i = 0; i < killTaskArgument.Amount; i++)
       {
-        var target = Instantiate((KillTarget)killTarget, Vector3.zero, Quaternion.identity);
-        target.KilledEvent += kill;
+        var target = Instantiate(killTaskArgument.Target, Vector3.zero, Quaternion.identity);
+        target.KilledEvent += killTaskArgument.Done;
       }
     }
 }

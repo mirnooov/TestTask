@@ -19,17 +19,20 @@ public class Task
     [ShowIf("_typeTask", TypeTask.Follow)]
     [SerializeField] private FollowTaskData _followTaskData;
     
-    [SerializeField] private UnityEvent<ITaskTarget,int,Action> _startTaskEvent;
+    [SerializeField] private UnityEvent<ITaskArgument> _startTaskEvent;
     [SerializeField] private UnityEvent _completedTaskEvent;
 
     public string Name => _name;
-    public string Description => _name;
+    public string Description => _description;
     public Sprite Icon  => _icon;
     
 
     public void StartTask()
     {
-        _killTaskData.Init(_startTaskEvent,_completedTaskEvent);
+        if(_typeTask == TypeTask.Kill)
+            _killTaskData.Init(_startTaskEvent,_completedTaskEvent);
+        else
+            _followTaskData.Init(_startTaskEvent,_completedTaskEvent);
     }
 
 }
@@ -49,9 +52,10 @@ public class KillTaskData : ITaskData
     private UnityEvent _completedEvent;
     private int _currentKillCount;
     
-    public void Init( UnityEvent<ITaskTarget,int,Action> startEvent, UnityEvent completedEvent)
+    public void Init(UnityEvent<ITaskArgument> startEvent, UnityEvent completedEvent)
     {
-        startEvent.Invoke(_killTarget, _amount, OnKillAdd);
+        var argument = new KillTaskArgument(_killTarget, _amount, OnKillAdd);
+        startEvent.Invoke(argument);
         _completedEvent = completedEvent;
     }
 
@@ -67,15 +71,14 @@ public class KillTaskData : ITaskData
 [Serializable]
 public class FollowTaskData : ITaskData
 {
-    [SerializeField] private DialogTarget _dialogTarget;
+    [SerializeField] private DialogTarget[] _dialogTarget;
     [SerializeField] private List<DialogPhrase> _dialog;
-
     private UnityEvent _completedEvent;
     
-    public void Init( UnityEvent<ITaskTarget,int,Action> startEvent, UnityEvent completedEvent)
+    public void Init(UnityEvent<ITaskArgument> startEvent, UnityEvent completedEvent)
     {
-        _dialogTarget.DialogEnded += OnDialogEnded;
-        startEvent.Invoke(_dialogTarget, 0, null);
+        var argument = new FollowTaskArgument(_dialogTarget, _dialog, OnDialogEnded);
+        startEvent.Invoke(argument);
         _completedEvent = completedEvent;
     }
 
@@ -87,9 +90,41 @@ public class FollowTaskData : ITaskData
 
 public interface ITaskData 
 {
-    public void Init( UnityEvent<ITaskTarget,int,Action> startEvent, UnityEvent completedEvent);
+    public void Init( UnityEvent<ITaskArgument> startEvent, UnityEvent completedEvent);
 }
 public interface ITaskTarget
 {
+}
+
+public interface ITaskArgument
+{
+}
+
+
+public class KillTaskArgument : ITaskArgument
+{
+    public KillTarget Target;
+    public int Amount;
+    public Action Done;
     
+    public KillTaskArgument(KillTarget target, int amount, Action done)
+    {
+        Target = target;
+        Amount = amount;
+        Done = done;
+    }
+}
+
+public class FollowTaskArgument : ITaskArgument
+{
+    public DialogTarget[] Target;
+    public Action Done;
+    public List<DialogPhrase> Dialog;
+    
+    public FollowTaskArgument(DialogTarget[] target, List<DialogPhrase> dialog,Action done)
+    {
+        Target = target;
+        Done = done;
+        Dialog = dialog;
+    }
 }

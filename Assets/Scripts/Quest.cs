@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -41,7 +40,7 @@ public class Quest : MonoBehaviour
         StartTask();
     }
 
-    public void OnCompleteQuest()
+    private void OnCompleteQuest()
     {
         
     }

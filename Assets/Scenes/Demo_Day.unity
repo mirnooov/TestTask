@@ -20031,7 +20031,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7627676533998792048, guid: a5b5ef192f4e72047bf0cc2d50df0c20, type: 3}
   m_PrefabInstance: {fileID: 4063397081406681983}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1031945304
+--- !u!114 &1031945305
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20040,10 +20040,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1031945303}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eedeef95a772a640a34aeb97c7baf63, type: 3}
+  m_Script: {fileID: 11500000, guid: ca407e55d34693d4d8bb1f5577892188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: 
+  Id: Nadya
   _sadAnimation: {fileID: 0}
 --- !u!4 &1033004080 stripped
 Transform:
@@ -20854,6 +20854,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tasks:
+  - _name: NextTask
+    _description: Task
+    _icon: {fileID: 21300000, guid: 7e14b0b06f2d1a84d9f1248060c05a36, type: 3}
+    _typeTask: 0
+    _killTaskData:
+      _amount: 0
+      _killTarget: {fileID: 0}
+    _followTaskData:
+      _dialogTarget: []
+      _dialog:
+      - Author: Orest
+        Phrases: hi
+        Mood: 
+      - Author: Nadya
+        Phrases: hi
+        Mood: 
+      - Author: Orest
+        Phrases: hi
+        Mood: 
+    _startTaskEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 818703780}
+          m_TargetAssemblyTypeName: DialogManager, Assembly-CSharp
+          m_MethodName: Init
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    _completedTaskEvent:
+      m_PersistentCalls:
+        m_Calls: []
   - _name: Wolf
     _description: Kill 2 wolf
     _icon: {fileID: 21300000, guid: e5104606edd259f42964eb58891dac1f, type: 3}
@@ -20862,7 +20899,7 @@ MonoBehaviour:
       _amount: 1
       _killTarget: {fileID: -5207486275757116623, guid: 073878d4ae60196488719cfb2f6c0d94, type: 3}
     _followTaskData:
-      _dialogTarget: {fileID: 0}
+      _dialogTarget: []
       _dialog: []
     _startTaskEvent:
       m_PersistentCalls:
@@ -20894,32 +20931,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - _name: NextTask
-    _description: Task
-    _icon: {fileID: 21300000, guid: 7e14b0b06f2d1a84d9f1248060c05a36, type: 3}
-    _typeTask: 0
-    _killTaskData:
-      _amount: 0
-      _killTarget: {fileID: 0}
-    _followTaskData:
-      _dialogTarget: {fileID: 0}
-      _dialog:
-      - Author: Pizda
-        Phrases: U best
-        Mood: 
-      - Author: Person
-        Phrases: I know
-        Mood: 
-      - Author: Pizda
-        Phrases: st.Olga 13
-        Mood: 
-    _startTaskEvent:
-      m_PersistentCalls:
-        m_Calls: []
-    _completedTaskEvent:
-      m_PersistentCalls:
-        m_Calls: []
-  _startOnAwake: 0
+  _startOnAwake: 1
   _questDisplayer: {fileID: 582578817}
 --- !u!4 &1082573292
 Transform:
@@ -38257,8 +38269,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eedeef95a772a640a34aeb97c7baf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: 
-  _sadAnimation: {fileID: 0}
 --- !u!4 &1915470270
 Transform:
   m_ObjectHideFlags: 0
@@ -42491,7 +42501,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eedeef95a772a640a34aeb97c7baf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Id: 
+--- !u!114 &5513411339166674312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5513411339166674310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca407e55d34693d4d8bb1f5577892188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: Orest
   _sadAnimation: {fileID: 0}
 --- !u!114 &5557289856881971810 stripped
 MonoBehaviour:
@@ -42561,7 +42583,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1324922063239881838, guid: c27d084f487ec2e4fa268cfcdef9e24a, type: 3}
       propertyPath: inputs.Array.data[12].OnInputDown.m_PersistentCalls.m_Calls.Array.size
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1324922063239881838, guid: c27d084f487ec2e4fa268cfcdef9e24a, type: 3}
       propertyPath: inputs.Array.data[22].OnInputChanged.m_PersistentCalls.m_Calls.Array.size
@@ -42589,7 +42611,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1324922063239881838, guid: c27d084f487ec2e4fa268cfcdef9e24a, type: 3}
       propertyPath: inputs.Array.data[12].OnInputDown.m_PersistentCalls.m_Calls.Array.data[5].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1324922063239881838, guid: c27d084f487ec2e4fa268cfcdef9e24a, type: 3}
       propertyPath: inputs.Array.data[12].OnInputDown.m_PersistentCalls.m_Calls.Array.data[6].m_Mode
